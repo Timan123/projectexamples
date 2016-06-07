@@ -39,7 +39,7 @@ class EventController extends BaseController {
 	
 	public function getBuildingsByMarket($market) {
 		DB::statement('SET ANSI_NULLS ON; SET ANSI_WARNINGS ON');
-		$results = DB::table('dca-05.TLG.dbo.Buildings')
+		$results = DB::table('TLG.dbo.Buildings')
 				->select(['Address','City','State','ZipCD','BuildingID','NodeNumber'])
 				->whereRaw('OnNetDt >= dateadd(m,-6,getdate())')
 				->whereRaw('OnNetDt <= getdate()')
